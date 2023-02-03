@@ -10,9 +10,15 @@ public class Bicicleta extends Vehiculo{
     public Bicicleta() {
     }
 
-    public Bicicleta(String Color, String Modelo, int anioFab, int precio, int CantidadDLlantas) {
+
+    public Bicicleta(String Descripcion, double RadioRueda, String tipo, String Color, String Modelo, int anioFab, int precio, int CantidadDLlantas) {
         super(Color, Modelo, anioFab, precio, CantidadDLlantas);
+        this.Descripcion = Descripcion;
+        this.RadioRueda = RadioRueda;
+        this.tipo = tipo;
     }
+
+    
 
     public String getDescripcion() {
         return Descripcion;

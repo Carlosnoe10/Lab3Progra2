@@ -103,7 +103,7 @@ public class Lab3Progra2_CarlosNoe {
                             CrearCliente();
                             break;
                         case 2:
-
+                            MODCliente();
                             break;
 
                     }// switch menu p
@@ -137,14 +137,139 @@ public class Lab3Progra2_CarlosNoe {
     }
 
     public static void CRUDVehiculos() {
+        Scanner k1ng = new Scanner(System.in);
+        System.out.println("Bienvenid al menu \n"
+                + "1. Crear \n"
+                + "2. Modificar");
+        int menu = k1ng.nextInt();
+        for (int x = 0; x < 1; x++) {
+            while (menu != 3) {
+                if ((menu > 0) && (menu < 3)) { // 4 es igual al numero limite que deseo agregar
+                    x++;
+                    switch (menu) {
+                        case 1:
+                            CrearVehiculos();
+                            break;
+                        case 2:
 
+                            break;
+
+                    }// switch menu p
+                    System.out.println("Bienvenid al menu \n"
+                            + "1. Crear \n"
+                            + "2. Modificar");
+                    menu = k1ng.nextInt();
+
+                } else {
+                    System.out.println("Ingrese adecuadamente el numero");
+                    x--;
+                }//if
+            }//while
+        }//for
+
+        System.out.println("Fin");
+    }
+
+    public static void CrearVehiculos() {
+        for (int j = 0; j < 1; j++) {
+            Scanner k1ng = new Scanner(System.in);
+            System.out.println("Ingrese le color ");
+            String Color = k1ng.nextLine();
+            k1ng = new Scanner(System.in);
+            System.out.println("Ingrese le Modelo ");
+            String Modelo = k1ng.nextLine();
+            k1ng = new Scanner(System.in);
+            System.out.println("Ingrese el anio de fabricacion");
+            int Fabri = k1ng.nextInt();
+            System.out.println("Ingrese el precio");
+            int Precio = k1ng.nextInt();
+            System.out.println("Ingrese la cantidad de llantas ");
+            int llantas = k1ng.nextInt();
+            if (Precio > 0 && llantas > 0) {
+                j++;
+                if (Listado.isEmpty()) {
+                    System.out.println("No se puede crear un vehiculo");
+                } else {
+                    if (llantas == 2) {
+                        for (int k = 0; k < 1; k++) {
+                            System.out.println("Ingrese si desea (1)bicicleta o (2)motocicleta");
+                            int des = k1ng.nextInt();
+                            if (des == 1) {
+                                k++;
+                                k1ng = new Scanner(System.in);
+                                System.out.println("Ingrese la descripcion de la Bici ");
+                                String Descript = k1ng.nextLine();
+                                k1ng = new Scanner(System.in);
+                                System.out.println("Ingrese el radio de la rueda");
+                                double ratio = k1ng.nextDouble();
+                                k1ng = new Scanner(System.in);
+                                System.out.println("Ingrese el tipo de rueda ");
+                                String Type = k1ng.nextLine();
+                                Bicicleta bici = new Bicicleta(Descript, ratio, Type, Color, Modelo, Fabri, Precio, llantas);
+                                for (int i = 0; i < 1; i++) {
+                                    System.out.println("Ingrese el numero del concsionario que desea Agregar el carro: ");
+                                    int Cambiar = k1ng.nextInt();
+                                    if (Cambiar >= Listado.size()) {
+                                        i--;
+                                        System.out.println("Mal Ingresado");
+                                    } else {
+                                        i++;
+                                        Listado.get(Cambiar).VehiculosVenta.add(bici);
+                                    }
+                                }
+                            } else if (des == 2) {
+                                k++;
+                                System.out.println("Ingrese el desplasamiento");
+                                int Despla = k1ng.nextInt();
+                                Motocicleta moto= new Motocicleta(Despla, Color, Modelo, Fabri, Precio, llantas);
+                                for (int i = 0; i < 1; i++) {
+                                    System.out.println("Ingrese el numero del concsionario que desea Agregar el carro: ");
+                                    int Cambiar = k1ng.nextInt();
+                                    if (Cambiar >= Listado.size()) {
+                                        i--;
+                                        System.out.println("Mal Ingresado");
+                                    } else {
+                                        i++;
+                                        Listado.get(Cambiar).VehiculosVenta.add(moto);
+                                    }
+                                }                                
+                            } else {
+                                k--;
+                            }
+                        }
+                    } else if (llantas == 4) {
+                        
+                        
+                        
+                    } else if (llantas > 4) {
+
+                    } else {
+                        System.out.println("No existen los Vehiculos Monollanteros");
+                    }
+                    ListarConsecionarios();
+
+                    for (int i = 0; i < 1; i++) {
+                        System.out.println("Ingrese el numero del concsionario que desea Agregar el carro: ");
+                        int Cambiar = k1ng.nextInt();
+                        if (Cambiar >= Listado.size()) {
+                            i--;
+                            System.out.println("Mal Ingresado");
+                        } else {
+                            i++;
+                            Listado.get(Cambiar).setVehiculosVenta();
+                        }
+                    }
+                }
+
+            } else {
+                j--;
+
+            }
+        }
     }
 
     public static void Comprayventadevehiculos() {
 
-    }
-
-    public static int DecisionLLantas() {
     }
 
     public static void CrearConsecionaria() {
@@ -209,7 +334,7 @@ public class Lab3Progra2_CarlosNoe {
                                     String nombre = k1ng.nextLine();
                                     Personas.get(Cambiar).setIDunique(nombre);
                                 }
-                            }                            
+                            }
                             break;
                         case 3:
                             ListarClientes();
@@ -226,7 +351,7 @@ public class Lab3Progra2_CarlosNoe {
                                     // Validacion**
                                     Personas.get(Cambiar).setBilletera(nombre);
                                 }
-                            }  
+                            }
                             break;
                         case 4:
                             ListarClientes();
@@ -243,7 +368,7 @@ public class Lab3Progra2_CarlosNoe {
                                 }
                             }
                             break;
-                            case 5:
+                        case 5:
                             ListarClientes();
                             for (int i = 0; i < 1; i++) {
                                 System.out.println("Ingrese el numero del concsionario que desea cambiar la direccion de las personas: ");
@@ -255,8 +380,8 @@ public class Lab3Progra2_CarlosNoe {
                                     i++;
                                     Personas.remove(Cambiar);
                                 }
-                            }                                
-                                
+                            }
+
                             break;
 
                     }// switch menu p
@@ -430,11 +555,11 @@ public class Lab3Progra2_CarlosNoe {
             System.out.println(Listado.get(a));
         }
     }
-    public static void ListarClientes(){
-            for (int a = 0; a < Personas.size(); a++) {
+
+    public static void ListarClientes() {
+        for (int a = 0; a < Personas.size(); a++) {
             System.out.println(Personas.get(a));
         }
     }
-    
 
 }

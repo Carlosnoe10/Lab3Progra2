@@ -1,12 +1,12 @@
-
 package lab3progra2_carlosnoe;
 
 public class Vehiculo {
+
     protected String Color;
-            protected String Modelo;
-            protected int anioFab;
-            protected int precio;
-            protected int CantidadDLlantas;
+    protected String Modelo;
+    protected int anioFab;
+    protected int precio;
+    protected int CantidadDLlantas;
 
     public Vehiculo() {
     }
