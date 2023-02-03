@@ -151,7 +151,7 @@ public class Lab3Progra2_CarlosNoe {
                             CrearVehiculos();
                             break;
                         case 2:
-
+                            ModVehiculos();
                             break;
 
                     }// switch menu p
@@ -221,7 +221,7 @@ public class Lab3Progra2_CarlosNoe {
                                 k++;
                                 System.out.println("Ingrese el desplasamiento");
                                 int Despla = k1ng.nextInt();
-                                Motocicleta moto= new Motocicleta(Despla, Color, Modelo, Fabri, Precio, llantas);
+                                Motocicleta moto = new Motocicleta(Despla, Color, Modelo, Fabri, Precio, llantas);
                                 for (int i = 0; i < 1; i++) {
                                     System.out.println("Ingrese el numero del concsionario que desea Agregar el carro: ");
                                     int Cambiar = k1ng.nextInt();
@@ -232,38 +232,95 @@ public class Lab3Progra2_CarlosNoe {
                                         i++;
                                         Listado.get(Cambiar).VehiculosVenta.add(moto);
                                     }
-                                }                                
+                                }
                             } else {
                                 k--;
                             }
                         }
                     } else if (llantas == 4) {
-                        
-                        
-                        
-                    } else if (llantas > 4) {
+                        System.out.println("Ingrese las puertas del vehiculo ");
+                        int Puertas = k1ng.nextInt();
+                        k1ng = new Scanner(System.in);
+                        System.out.println("Ingrese una descripcion del motor");
+                        String descript = k1ng.nextLine();
+                        k1ng = new Scanner(System.in);
+                        System.out.println("Ingrese la velocidad maxima");
+                        int Vell = k1ng.nextInt();
+                        Carro car = new Carro(Puertas, descript, Vell, Color, Modelo, Fabri, Precio, llantas);
+                        for (int i = 0; i < 1; i++) {
+                            System.out.println("Ingrese el numero del concsionario que desea Agregar el carro: ");
+                            int Cambiar = k1ng.nextInt();
+                            if (Cambiar >= Listado.size()) {
+                                i--;
+                                System.out.println("Mal Ingresado");
+                            } else {
+                                i++;
+                                Listado.get(Cambiar).VehiculosVenta.add(car);
+                            }
+                        }
 
+                    } else if (llantas > 4) {
+                        boolean Teemo;
+                        for (int h = 0; h < 1; h++) {
+                            System.out.println(" Desea un camion de carga (1) y (2) sino");
+                            int Carga = k1ng.nextInt();
+                            if (Carga == 1) {
+                                h++;
+                                System.out.println("Ingrese un maximo de carga");
+                                int Carga1 = k1ng.nextInt();
+                                for (int i = 0; i < 1; i++) {
+                                    System.out.println("Desea una excavadora? 1=si 2=no");
+                                    int Fiddle = k1ng.nextInt();
+
+                                    if (Fiddle == 1) {
+                                        i++;
+                                        Teemo = true;
+                                    } else if (Fiddle == 2) {
+                                        Teemo = false;
+                                        i++;
+                                    } else {
+                                        System.out.println("De nuevo");
+                                        i--;
+                                    }
+                                }
+                                CamionDCarga KXMI = new CamionDCarga(Carga1, Teemo, Color, Modelo, Fabri, Precio, llantas);
+                                for (int i = 0; i < 1; i++) {
+                                    System.out.println("Ingrese el numero del concsionario que desea Agregar el carro: ");
+                                    int Cambiar = k1ng.nextInt();
+                                    if (Cambiar >= Listado.size()) {
+                                        i--;
+                                        System.out.println("Mal Ingresado");
+                                    } else {
+                                        i++;
+                                        Listado.get(Cambiar).VehiculosVenta.add(KXMI);
+                                    }
+                                }
+                            } else if (Carga == 2) {
+                                System.out.println("Ingrese la cantidad de pasajeros");
+                                int Pass = k1ng.nextInt();
+                                Bus KXMI = new Bus(Pass, Color, Modelo, Fabri, Precio, llantas);
+                                h++;
+                                for (int i = 0; i < 1; i++) {
+                                    System.out.println("Ingrese el numero del concsionario que desea Agregar el carro: ");
+                                    int Cambiar = k1ng.nextInt();
+                                    if (Cambiar >= Listado.size()) {
+                                        i--;
+                                        System.out.println("Mal Ingresado");
+                                    } else {
+                                        i++;
+                                        Listado.get(Cambiar).VehiculosVenta.add(KXMI);
+                                    }
+                                }
+                            } else {
+                                h--;
+                            }
+                        }
                     } else {
                         System.out.println("No existen los Vehiculos Monollanteros");
                     }
-                    ListarConsecionarios();
-
-                    for (int i = 0; i < 1; i++) {
-                        System.out.println("Ingrese el numero del concsionario que desea Agregar el carro: ");
-                        int Cambiar = k1ng.nextInt();
-                        if (Cambiar >= Listado.size()) {
-                            i--;
-                            System.out.println("Mal Ingresado");
-                        } else {
-                            i++;
-                            Listado.get(Cambiar).setVehiculosVenta();
-                        }
-                    }
                 }
-
             } else {
                 j--;
-
             }
         }
     }
@@ -562,4 +619,9 @@ public class Lab3Progra2_CarlosNoe {
         }
     }
 
+    public static void ModVehiculos(){
+        
+        
+    }
+    
 }

@@ -8,10 +8,9 @@ public class Bus extends Vehiculo {
     public Bus() {
     }
 
-    public Bus(int CantidadPasajeros, String TipoDBus, String Color, String Modelo, int anioFab, int precio, int CantidadDLlantas) {
+    public Bus(int CantidadPasajeros, String Color, String Modelo, int anioFab, int precio, int CantidadDLlantas) {
         super(Color, Modelo, anioFab, precio, CantidadDLlantas);
         this.CantidadPasajeros = CantidadPasajeros;
-        this.TipoDBus = TipoDBus;
     }
 
     public int getCantidadPasajeros() {
