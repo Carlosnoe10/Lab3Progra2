@@ -89,37 +89,7 @@ public class Lab3Progra2_CarlosNoe {
     }
 
     public static void CRUDClientes() {
-        Scanner k1ng = new Scanner(System.in);
-        System.out.println("Bienvenid al menu \n"
-                + "1. Crear \n"
-                + "2. Modificar");
-        int menu = k1ng.nextInt();
-        for (int x = 0; x < 1; x++) {
-            while (menu != 3) {
-                if ((menu > 0) && (menu < 3)) { // 4 es igual al numero limite que deseo agregar
-                    x++;
-                    switch (menu) {
-                        case 1:
-                            CrearCliente();
-                            break;
-                        case 2:
-                            MODCliente();
-                            break;
 
-                    }// switch menu p
-                    System.out.println("Bienvenid al menu \n"
-                            + "1. Crear \n"
-                            + "2. Modificar");
-                    menu = k1ng.nextInt();
-
-                } else {
-                    System.out.println("Ingrese adecuadamente el numero");
-                    x--;
-                }//if
-            }//while
-        }//for
-
-        System.out.println("Fin");
     }
 
     public static void CrearCliente() {
@@ -604,12 +574,119 @@ public class Lab3Progra2_CarlosNoe {
                 System.out.println("Mal Ingresado");
             } else {
                 i++;
-                if (Listado.get()) {
-                    
+                for (int j = 0; j < 1; j++) {
+                    System.out.println(Listado.get(Cambiar).getVehiculosVenta().get(j));
+                }
+                System.out.println("Ingrese el carro que desea cambiar ");
+                int carro = k1ng.nextInt();
+                if (Listado.get(Cambiar).getVehiculosVenta().get(carro) instanceof Carro) {
+                    System.out.println("Bienvenid al menu \n"
+                            + "1. cambiar cant puertas \n"
+                            + "2. cambiar descript motor\n"
+                            + "3. cambiar velocidad");
+                    int menu = k1ng.nextInt();
+                    for (int x = 0; x < 1; x++) {
+                        while (menu != 4) {
+                            if ((menu > 0) && (menu < 4)) { // 4 es igual al numero limite que deseo agregar
+                                x++;
+                                switch (menu) {
+                                    case 1:
+                                        System.out.println("Ingrese la cantidad de puertas");
+                                        int newcant = k1ng.nextInt();
+                                        ((Carro) Listado.get(Cambiar).getVehiculosVenta().get(carro)).setCantidadPuertas(newcant);
+                                        break;
+                                    case 2:
+                                        k1ng = new Scanner(System.in);
+                                        System.out.println("Ingrese la nueva descripcion");
+                                        String newdesp = k1ng.nextLine();
+                                        ((Carro) Listado.get(Cambiar).getVehiculosVenta().get(carro)).setDescripMotor(newdesp);
+                                        break;
+                                    case 3:
+                                        k1ng = new Scanner(System.in);
+                                        System.out.println("Ingrese la cantidad de puertas");
+                                        int newpas = k1ng.nextInt();
+                                        ((Carro) Listado.get(Cambiar).getVehiculosVenta().get(carro)).setCantidadPuertas(newpas);
+                                        break;
+                                }// switch menu p
+                                System.out.println("Bienvenid al menu \n"
+                                        + "1. cambiar cant puertas \n"
+                                        + "2. cambiar descript motor\n"
+                                        + "3. cambiar velocidad");
+                                menu = k1ng.nextInt();
+
+                            } else {
+                                System.out.println("Ingrese adecuadamente el numero");
+                                x--;
+                            }//if
+                        }//while
+                    }//for
+
+                    System.out.println("Fin");
+                } else if ((Listado.get(Cambiar).getVehiculosVenta().get(carro) instanceof Motocicleta)) {
+                    System.out.println("Bienvenid al menu \n"
+                            + "1. cambiar el desplacamiento \n");
+                    int menu = k1ng.nextInt();
+                    for (int x = 0; x < 1; x++) {
+                        while (menu != 2) {
+                            if ((menu > 0) && (menu < 3)) { // 4 es igual al numero limite que deseo agregar
+                                x++;
+                                switch (menu) {
+                                    case 1:
+                                        System.out.println("Ingrese el nuevo  desplacamiento");
+                                        int newcant = k1ng.nextInt();
+                                        ((Motocicleta) Listado.get(Cambiar).getVehiculosVenta().get(carro)).setDesplasamiento(newcant);
+                                        break;
+                                }// switch menu p
+                                System.out.println("Bienvenid al menu \n"
+                                        + "1. cambiar el desplacamiento \n");
+                                menu = k1ng.nextInt();
+
+                            } else {
+                                System.out.println("Ingrese adecuadamente el numero");
+                                x--;
+                            }//if
+                        }//while
+                    }//for
+
+                    System.out.println("Fin");
+
+                } else if ((Listado.get(Cambiar).getVehiculosVenta().get(carro) instanceof Bus)) {
+                    System.out.println("Bienvenid al menu \n"
+                            + "1. cambiar el desplacamiento \n"
+                            + "2. ");
+                    int menu = k1ng.nextInt();
+                    for (int x = 0; x < 1; x++) {
+                        while (menu != 2) {
+                            if ((menu > 0) && (menu < 3)) { // 4 es igual al numero limite que deseo agregar
+                                x++;
+                                switch (menu) {
+                                    case 1:
+                                        System.out.println("Ingrese el cantidad de pasajeros");
+                                        int newcant = k1ng.nextInt();
+                                        ((Bus) Listado.get(Cambiar).getVehiculosVenta().get(carro)).setCantidadPasajeros(newcant);
+                                        break;
+//                                    case 2:
+//                                        k1ng = new Scanner(System.in);
+//                                        System.out.println("Ingrese la cantidad de puertas");
+//                                        int newpas = k1ng.nextInt();
+//                                        ((Bus) Listado.get(Cambiar).getVehiculosVenta().get(carro)).setCantidadPuertas(newpas);
+//                                        break;
+                                }// switch menu p
+                                System.out.println("Bienvenid al menu \n"
+                                        + "1. cambiar el desplacamiento \n");
+                                menu = k1ng.nextInt();
+
+                            } else {
+                                System.out.println("Ingrese adecuadamente el numero");
+                                x--;
+                            }//if
+                        }//while
+                    }//for
+
+                    System.out.println("Fin");
                 }
             }
         }
 
     }
-
 }
