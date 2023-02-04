@@ -89,7 +89,37 @@ public class Lab3Progra2_CarlosNoe {
     }
 
     public static void CRUDClientes() {
+        Scanner k1ng = new Scanner(System.in);
+        System.out.println("Bienvenid al menu \n"
+                + "1. Crear \n"
+                + "2. Modificar");
+        int menu = k1ng.nextInt();
+        for (int x = 0; x < 1; x++) {
+            while (menu != 3) {
+                if ((menu > 0) && (menu < 3)) { // 4 es igual al numero limite que deseo agregar
+                    x++;
+                    switch (menu) {
+                        case 1:
+                            CrearCliente();
+                            break;
+                        case 2:
+                            MODCliente();
+                            break;
 
+                    }// switch menu p
+                    System.out.println("Bienvenid al menu \n"
+                            + "1. Crear \n"
+                            + "2. Modificar");
+                    menu = k1ng.nextInt();
+
+                } else {
+                    System.out.println("Ingrese adecuadamente el numero");
+                    x--;
+                }//if
+            }//while
+        }//for
+
+        System.out.println("Fin");
     }
 
     public static void CrearCliente() {
@@ -296,7 +326,27 @@ public class Lab3Progra2_CarlosNoe {
     }
 
     public static void Comprayventadevehiculos() {
-
+        Scanner k1ng = new Scanner(System.in);
+        CrearConsecionaria();
+        for (int i = 0; i < 1; i++) {
+            System.out.println("Ingrese el numero del concsionario que desea Agregar el carro: ");
+            int Cambiar = k1ng.nextInt();
+            if (Cambiar >= Listado.size()) {
+                i--;
+                System.out.println("Mal Ingresado");
+            } else {
+                i++;
+                for (int j = 0; j < 1; j++) {
+                    System.out.println(Listado.get(Cambiar).getVehiculosVenta().get(j));
+                }
+                int money =Listado.get(Cambiar).getPresupuesto();
+                if (money >0 ) {
+                    
+                }else{
+                    System.out.println("no se pudo");
+                }
+            }
+        }
     }
 
     public static void CrearConsecionaria() {
@@ -671,6 +721,46 @@ public class Lab3Progra2_CarlosNoe {
 //                                        int newpas = k1ng.nextInt();
 //                                        ((Bus) Listado.get(Cambiar).getVehiculosVenta().get(carro)).setCantidadPuertas(newpas);
 //                                        break;
+                                }// switch menu p
+                                System.out.println("Bienvenid al menu \n"
+                                        + "1. cambiar el desplacamiento \n");
+                                menu = k1ng.nextInt();
+
+                            } else {
+                                System.out.println("Ingrese adecuadamente el numero");
+                                x--;
+                            }//if
+                        }//while
+                    }//for
+
+                    System.out.println("Fin");
+                } else if ((Listado.get(Cambiar).getVehiculosVenta().get(carro) instanceof Bicicleta)) {
+                    System.out.println("Bienvenid al menu \n"
+                            + "1. cambiar el desplacamiento \n"
+                            + "2. ");
+                    int menu = k1ng.nextInt();
+                    for (int x = 0; x < 1; x++) {
+                        while (menu != 5) {
+                            if ((menu > 0) && (menu < 3)) { // 4 es igual al numero limite que deseo agregar
+                                x++;
+                                switch (menu) {
+                                    case 1:
+                                        System.out.println("Ingrese el radio de la puerta ");
+                                        double newcant = k1ng.nextDouble();
+                                        ((Bicicleta) Listado.get(Cambiar).getVehiculosVenta().get(carro)).setRadioRueda(newcant);
+                                        break;
+                                    case 2:
+                                        k1ng = new Scanner(System.in);
+                                        System.out.println("Ingrese la nueva descripcion");
+                                        String newdesp = k1ng.nextLine();
+                                        ((Bicicleta) Listado.get(Cambiar).getVehiculosVenta().get(carro)).setDescripcion(newdesp);
+                                        break;
+                                    case 3:
+                                        k1ng = new Scanner(System.in);
+                                        System.out.println("Ingrese la cantidad de puertas");
+                                        String pascTipo = k1ng.nextLine();
+                                        ((Bicicleta) Listado.get(Cambiar).getVehiculosVenta().get(carro)).setTipo(pascTipo);
+                                        break;
                                 }// switch menu p
                                 System.out.println("Bienvenid al menu \n"
                                         + "1. cambiar el desplacamiento \n");
