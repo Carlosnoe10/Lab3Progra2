@@ -172,6 +172,7 @@ public class Lab3Progra2_CarlosNoe {
 
     public static void CrearVehiculos() {
         for (int j = 0; j < 1; j++) {
+            boolean Teemo = false;
             Scanner k1ng = new Scanner(System.in);
             System.out.println("Ingrese le color ");
             String Color = k1ng.nextLine();
@@ -260,7 +261,6 @@ public class Lab3Progra2_CarlosNoe {
                         }
 
                     } else if (llantas > 4) {
-                        boolean Teemo;
                         for (int h = 0; h < 1; h++) {
                             System.out.println(" Desea un camion de carga (1) y (2) sino");
                             int Carga = k1ng.nextInt();
@@ -420,7 +420,8 @@ public class Lab3Progra2_CarlosNoe {
                                     System.out.println("Mal Ingresado");
                                 } else {
                                     i++;
-                                    //Carros
+                                    System.out.println("Ingrese el nuevo dinero");
+                                    int nombre = k1ng.nextInt();
                                     Personas.get(Cambiar).setBilletera(nombre);
                                 }
                             }
@@ -467,7 +468,7 @@ public class Lab3Progra2_CarlosNoe {
                 + "1. Cambiar el nombre de la empresa \n"
                 + "2. Cambiar ID de la empresa \n"
                 + "3. Cambiar Direccion \n"
-                + "4. Mod Vehiculo\n"
+                + "4. Ver listado\n"
                 + "5. Mod Cliente\n"
                 + "6. CAmbiar Presupuesto\n"
                 + "7. Eliminar");
@@ -527,33 +528,6 @@ public class Lab3Progra2_CarlosNoe {
                             break;
                         case 4:
                             ListarConsecionarios();
-                            for (int i = 0; i < 1; i++) {
-                                System.out.println("Ingrese el numero del concsionario que desea agregar un nuevo carro: ");
-                                int Cambiar = k1ng.nextInt();
-                                if (Cambiar >= Listado.size()) {
-                                    i--;
-                                    System.out.println("Mal Ingresado");
-                                } else {
-                                    i++;
-                                    //nuevo carro
-                                    Listado.get(Cambiar).setVehiculosVenta(NuevoCarro);
-                                }
-                            }
-                            break;
-                        case 5:
-                            ListarConsecionarios();
-                            for (int i = 0; i < 1; i++) {
-                                System.out.println("Ingrese el numero del concsionario que desea agregar un nuevo cliente: ");
-                                int Cambiar = k1ng.nextInt();
-                                if (Cambiar >= Listado.size()) {
-                                    i--;
-                                    System.out.println("Mal Ingresado");
-                                } else {
-                                    i++;
-                                    //Cliente
-                                    Listado.get(Cambiar).setVehiculosVenta(Cliente);
-                                }
-                            }
                             break;
                         case 6:
                             ListarConsecionarios();
@@ -619,9 +593,23 @@ public class Lab3Progra2_CarlosNoe {
         }
     }
 
-    public static void ModVehiculos(){
-        
-        
+    public static void ModVehiculos() {
+        Scanner k1ng = new Scanner(System.in);
+        CrearConsecionaria();
+        for (int i = 0; i < 1; i++) {
+            System.out.println("Ingrese el numero del concsionario que desea Agregar el carro: ");
+            int Cambiar = k1ng.nextInt();
+            if (Cambiar >= Listado.size()) {
+                i--;
+                System.out.println("Mal Ingresado");
+            } else {
+                i++;
+                if (Listado.get()) {
+                    
+                }
+            }
+        }
+
     }
-    
+
 }
